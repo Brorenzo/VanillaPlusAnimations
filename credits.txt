@@ -1,0 +1,8 @@
+/Vanilla+ Animations is being developed by Brorenzo8194/
+
+This pack is currently underdevelopment by Brorenzo8194, and 
+takes large inspiration from AnimationsPlus by IMAGIN7 and
+the Java pack Fresh Animations (not a port, I'm not
+that smart).
+
+----------------------------------------

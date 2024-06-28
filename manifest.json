@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Taking the Vanilla Mob Animations, and making them Better.\nCreated by Brorenzo.",
+        "name": "Vanilla+ Animations",
+        "uuid": "4dc0a854-ab71-4554-90b8-9e50e4bde9b6",
+        "version": [1, 0, 0],
+        "min_engine_version": [ 1, 18, 10 ]
+    },
+    "modules": [
+        {
+            "description": "Taking the Vanilla Mob Animations, and making them Better.\nCreated by Brorenzo.",
+            "type": "resources",
+            "uuid": "f3af778a-114d-4145-bdd3-2d27b8560103",
+            "version": [1, 0, 0]
+        }
+    ]
+}
