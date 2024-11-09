@@ -1,6 +1,6 @@
 # Brorenzo's Vanilla+ Animations Pack
 ## Information
-This pack updates the Suspicious Sand and Gravel to make them easier to see.
+Taking the Vanilla Minecraft Mob Animations, and making them Better.
 ## Feature list
 Some features this pack includes:
 - Blinking eyes
