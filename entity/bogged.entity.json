@@ -1,0 +1,52 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:bogged",
+      "materials": {
+        "default": "phantom",
+        "overlay": "bogged_clothes"
+      },
+      "textures": {
+        "default": "textures/entity/skeleton/bogged",
+        "overlay": "textures/entity/skeleton/bogged_clothes"
+      },
+      "geometry": {
+        "default": "geometry.skeleton.bogged",
+        "overlay": "geometry.bogged.armor"
+      },
+      "spawn_egg": {
+        "base_color": "#8A9C72",
+        "overlay_color": "#314D1B"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ]
+      },
+      "animations": {
+        "base": "animation.bogged.base",
+        "walking": "animation.bogged.walking",
+        "hold_bow": "animation.bogged.hold_bow",
+        "hold_stand": "animation.bogged.hold_stand",
+        "hold_walk": "animation.bogged.hold_walk",
+        "riding": "animation.bogged.riding",
+        "riding_attack": "animation.bogged.riding_attack",
+        "hurt": "animation.bogged.hurt",
+        "hurt2": "animation.bogged.hurt2",
+        "looking": "animation.bogged.looking"
+      },
+      "animation_controllers": [
+        { "general": "controller.animation.bogged.general" },
+        { "damage": "controller.animation.bogged.damage" },
+        { "attack": "controller.animation.bogged.attack" },
+        { "look_target": "controller.animation.bogged.look_target" }
+      ],
+      "render_controllers": [
+        "controller.render.bogged_clothes",
+        "controller.render.bogged"
+      ],
+      "enable_attachables": true
+    }
+  }
+}

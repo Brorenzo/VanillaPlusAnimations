@@ -1,0 +1,69 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:piglin",
+      "materials": {
+        "default": "phantom"
+      },
+      "textures": {
+        "default": "textures/entity/piglin/piglin"
+      },
+      "geometry": {
+        "default": "geometry.piglin"
+      },
+      "spawn_egg": {
+        "base_color": "#995f40",
+        "overlay_color": "#f9f3a4"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.attack = Math.sin((1.0 - (1.0 - variable.attack_time) * (1.0 - variable.attack_time)) * 180.0) * 57.3;",
+          "variable.attack2 = Math.sin(variable.attack_time * 180.0) * 57.3;",
+          "variable.z_bob = Math.cos(query.life_time * 103.13244) * 2.865 + 2.865;",
+          "variable.x_bob = Math.sin(query.life_time * 76.776372) * 2.865;",
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "animate": [
+          "general",
+          "facial",
+          "look_target",
+          "damage",
+		  "attacking",
+		  "riding",
+		  "baby_piglin"
+		]
+      },
+      "animations": {
+        "base": "animation.piglin.base",
+        "mouth": "animation.piglin.mouth",
+        "admire": "animation.piglin.admire",
+		"walking": "animation.piglin.walking",
+        "running": "animation.piglin.running",
+        "melee_attack": "animation.piglin.melee_attack",
+        "hand_attack": "animation.piglin.hand_attack",
+        "hold_crossbow": "animation.piglin.hold_crossbow",
+        "charge_crossbow": "animation.piglin.charge_crossbow",
+        "base_face": "animation.piglin.base_face",
+        "death_face": "animation.piglin.death_face",
+        "looking": "animation.piglin.looking",
+        "hurt": "animation.piglin.hurt",
+        "celebrate_hunt": "animation.piglin.celebrate_hunt",
+        "celebrate_hunt_special": "animation.piglin.celebrate_hunt_special",
+        "riding_base": "animation.piglin.riding_base",
+        "baby": "animation.piglin.baby",
+        "general": "controller.animation.piglin.general",
+        "facial": "controller.animation.piglin.facial",
+        "look_target": "controller.animation.piglin.look_target",
+        "damage": "controller.animation.piglin.damage",
+        "attacking": "controller.animation.piglin.attacking",
+        "riding": "controller.animation.piglin.riding",
+        "baby_piglin": "controller.animation.piglin.baby_piglin"
+      },
+      "render_controllers": [ "controller.render.piglin" ],
+      "enable_attachables": true
+    }
+  }
+}

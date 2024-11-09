@@ -1,0 +1,61 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:piglin_brute",
+      "materials": {
+        "default": "phantom"
+      },
+      "textures": {
+        "default": "textures/entity/piglin/piglin_brute"
+      },
+      "geometry": {
+        "default": "geometry.piglin_brute"
+      },
+      "spawn_egg": { 
+        "base_color": "#592A10",
+        "overlay_color": "#F9F3A4"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.attack = Math.sin((1.0 - (1.0 - variable.attack_time) * (1.0 - variable.attack_time)) * 180.0) * 57.3;",
+          "variable.attack2 = Math.sin(variable.attack_time * 180.0) * 57.3;",
+          "variable.z_bob = Math.cos(query.life_time * 103.13244) * 2.865 + 2.865;",
+          "variable.x_bob = Math.sin(query.life_time * 76.776372) * 2.865;",
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "animate": [
+          "general",
+          "facial",
+          "look_target",
+          "damage",
+		  "attacking",
+		  "riding"	  
+        ]
+      },
+      "animations": {
+        "base": "animation.piglin.base",
+        "mouth": "animation.piglin.mouth",
+        "walking": "animation.piglin.walking",
+        "running": "animation.piglin.running",
+        "melee_attack": "animation.piglin.melee_attack",
+        "hand_attack": "animation.piglin.hand_attack",
+        "base_face": "animation.piglin.base_face",
+        "death_face": "animation.piglin.death_face",
+        "looking": "animation.piglin.looking",
+        "hurt": "animation.piglin.hurt",
+        "riding_base": "animation.piglin.riding_base",
+        "general": "controller.animation.piglin.general",
+        "facial": "controller.animation.piglin.facial",
+        "look_target": "controller.animation.piglin.look_target",
+        "damage": "controller.animation.piglin.damage",
+		"attacking": "controller.animation.piglin.attacking",
+		"riding": "controller.animation.piglin.riding"
+      },
+      "render_controllers": [ "controller.render.piglin_brute" ],
+      "enable_attachables": true
+    }
+  }
+}
