@@ -1,0 +1,272 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.piglin.general": {
+			"states": {
+				"default": {
+					"animations": ["base", "mouth"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"walk": "query.ground_speed > 0.3"},
+						{"admire": "query.is_admiring"},
+						{"celebrate": "query.is_celebrating"}
+					],
+					"blend_transition": 0.2
+				},
+				"base": {
+					"animations": ["base", "mouth"],
+					"transitions": [
+						{"default": "query.is_admiring"},
+						{"walk": "query.ground_speed > 0.3"},
+						{"celebrate": "query.is_celebrating"}
+					],
+					"blend_transition": 0.2
+				},
+				"walk": {
+					"animations": ["walking"],
+					"transitions": [
+						{"default": "query.is_admiring"},
+						{"base": "query.ground_speed < 0.3"},
+						{"run": "query.ground_speed > 0.3 && query.is_angry"},
+						{"celebrate": "query.is_celebrating"}
+					],
+					"blend_transition": 0.2
+				},
+				"run": {
+					"animations": ["running"],
+					"transitions": [
+						{"walk": "!query.is_angry || query.ground_speed < 0.3"}
+					],
+					"blend_transition": 0.2
+				},
+				"admire": {
+					"animations": ["admire"],
+					"transitions": [
+						{"default": "!query.is_admiring"}
+					],
+					"blend_transition": 0.2
+				},
+				"celebrate": {
+					"animations": ["celebrate_hunt", "celebrate_hunt_special"],
+					"transitions": [
+						{"default": "!query.is_celebrating"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.piglin.facial": {
+			"states": {
+				"default": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.15
+				},
+				"death_face": {
+					"animations": ["death_face"],
+					"transitions": [
+						{"default": "query.is_alive"}
+					],
+					"blend_transition": 0.15
+				}
+			}
+		},
+		"controller.animation.piglin.look_target": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"look": "query.is_alive"}
+					]
+				},
+				"look": {
+					"animations": ["looking"],
+					"transitions": [
+						{"default": "!query.is_alive"}
+					]
+				}
+			}
+		},
+		"controller.animation.piglin.damage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"dmg1": "query.health == 15"},
+						{"dmg2": "query.health == 14"},
+						{"dmg3": "query.health == 13"},
+						{"dmg4": "query.health == 12"},
+						{"dmg5": "query.health == 11"},
+						{"dmg6": "query.health == 10"},
+						{"dmg7": "query.health == 9"},
+						{"dmg8": "query.health == 8"},
+						{"dmg9": "query.health == 7"},
+						{"dmg10": "query.health == 6"},
+						{"dmg11": "query.health == 5"},
+						{"dmg12": "query.health == 4"},
+						{"dmg13": "query.health == 3"},
+						{"dmg14": "query.health == 2"},
+						{"dmg15": "query.health == 1"}
+					]
+				},
+				"dmg1": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 15"}
+					]
+				},
+				"dmg2": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 14"}
+					]
+				},
+				"dmg3": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 13"}
+					]
+				},
+				"dmg4": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 12"}
+					]
+				},
+				"dmg5": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 11"}
+					]
+				},
+				"dmg6": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 10"}
+					]
+				},
+				"dmg7": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 9"}
+					]
+				},
+				"dmg8": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 8"}
+					]
+				},
+				"dmg9": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 7"}
+					]
+				},
+				"dmg10": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 6"}
+					]
+				},
+				"dmg11": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 5"}
+					]
+				},
+				"dmg12": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 4"}
+					]
+				},
+				"dmg13": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 3"}
+					]
+				},
+				"dmg14": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 2"}
+					]
+				},
+				"dmg15": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 1"}
+					]
+				}
+			}
+		},
+		"controller.animation.piglin.baby_piglin": {
+			"states": {
+				"default": {
+					"animations": [
+						{"baby": "query.is_baby"}
+					]
+				}
+			}
+		},
+		"controller.animation.piglin.attacking": {
+			"states": {
+				"range_charge": {
+					"animations": ["charge_crossbow"],
+					"transitions": [
+						{"default": "variable.attack_state == 0  ||  query.is_admiring"},
+						{"range_hold": "variable.attack_state == 1"}
+					],
+					"blend_transition": 0.2
+				},
+				"default": {
+					"transitions": [
+						{"range_hold": "query.variant == 0 && variable.attack_state == 1 && !query.is_admiring"},
+						{"range_charge": "query.variant == 0 && variable.attack_state == 2 && !query.is_admiring"},
+						{"hand_attack": "variable.has_target && query.variant == 1 && !query.is_item_equipped && variable.attack_time >= 0.0 && !query.is_admiring"},
+						{"melee_attack": "variable.has_target && query.variant == 1 && query.is_item_equipped && variable.attack_time >= 0.0 && !query.is_admiring"}
+					],
+					"blend_transition": 0.2
+				},
+				"range_hold": {
+					"animations": ["hold_crossbow"],
+					"transitions": [
+						{"default": "variable.attack_state == 0  ||  query.is_admiring"},
+						{"range_charge": "variable.attack_state == 2"}
+					],
+					"blend_transition": 0.2
+				},
+				"melee_attack": {
+					"animations": ["melee_attack"],
+					"transitions": [
+						{"default": "!query.is_item_equipped || !variable.has_target || variable.attack_time < 0.0 ||  query.is_admiring"}
+					]
+				},
+				"hand_attack": {
+					"animations": ["melee_attack"],
+					"transitions": [
+						{"default": "query.is_item_equipped || !variable.has_target || variable.attack_time < 0.0 ||  query.is_admiring"}
+					]
+				}
+			}
+		},
+		"controller.animation.piglin.riding": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"riding_base": "query.is_riding"}
+					],
+					"blend_transition": 0.2
+				},
+				"riding_base": {
+					"animations": ["riding_base"],
+					"transitions": [
+						{"default": "!query.is_riding"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

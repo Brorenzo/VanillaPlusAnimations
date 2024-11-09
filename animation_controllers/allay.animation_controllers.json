@@ -1,0 +1,239 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.allay.general": {
+			"initial_state": "idling",
+			"states": {
+				"idling": {
+					"animations": ["idle", "base_face"],
+					"transitions": [
+						{"flying": "query.modified_move_speed > 0.2"}
+					],
+					"blend_transition": 0.2
+				},
+				"flying": {
+					"animations": ["fly", "base_face"],
+					"transitions": [
+						{"idling": "query.modified_move_speed < 0.2"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.allay.look_at_target": {
+			"states": {
+				"default": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"looking_at_target": "!query.is_dancing"}
+					]
+				},
+				"looking_at_target": {
+					"animations": ["look_at_target"],
+					"transitions": [
+						{"default": "query.is_dancing"}
+					]
+				}
+			}
+		},
+		"controller.animation.allay.holding": {
+			"initial_state": "holding",
+			"states": {
+				"holding": {
+					"animations": [
+						{"hold_item": "variable.is_holding_left || variable.is_holding_right"}
+					],
+					"transitions": [
+						{"fly_holding": "query.modified_move_speed > 0.2"}
+					],
+					"blend_transition": 0.2
+				},
+				"fly_holding": {
+					"animations": [
+						{"hold_item_fly": "variable.is_holding_left || variable.is_holding_right"}
+					],
+					"transitions": [
+						{"holding": "query.modified_move_speed < 0.2"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.allay.dancing": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"dancing": "query.is_dancing"}
+					],
+					"blend_transition": 0.2
+				},
+				"dancing": {
+					"animations": ["dance"],
+					"transitions": [
+						{"default": "!query.is_dancing"}
+					]
+				}
+			}
+		},
+		"controller.animation.allay.facial": {
+			"states": {
+				"default": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.15
+				},
+				"death_face": {
+					"animations": ["death_face"],
+					"transitions": [
+						{"default": "query.is_alive"}
+					],
+					"blend_transition": 0.15
+				}
+			}
+		},
+		"controller.animation.allay.damage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"dmg1": "query.health == 19"},
+						{"dmg2": "query.health == 18"},
+						{"dmg3": "query.health == 17"},
+						{"dmg4": "query.health == 16"},
+						{"dmg5": "query.health == 15"},
+						{"dmg6": "query.health == 14"},
+						{"dmg7": "query.health == 13"},
+						{"dmg8": "query.health == 12"},
+						{"dmg9": "query.health == 11"},
+						{"dmg10": "query.health == 10"},
+						{"dmg11": "query.health == 9"},
+						{"dmg12": "query.health == 8"},
+						{"dmg13": "query.health == 7"},
+						{"dmg14": "query.health == 6"},
+						{"dmg15": "query.health == 5"},
+						{"dmg16": "query.health == 4"},
+						{"dmg17": "query.health == 3"},
+						{"dmg18": "query.health == 2"},
+						{"dmg19": "query.health == 1"}
+					]
+				},
+				"dmg1": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 19"}
+					]
+				},
+				"dmg2": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 18"}
+					]
+				},
+				"dmg3": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 17"}
+					]
+				},
+				"dmg4": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 16"}
+					]
+				},
+				"dmg5": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 15"}
+					]
+				},
+				"dmg6": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 14"}
+					]
+				},
+				"dmg7": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 13"}
+					]
+				},
+				"dmg8": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 12"}
+					]
+				},
+				"dmg9": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 11"}
+					]
+				},
+				"dmg10": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 10"}
+					]
+				},
+				"dmg11": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 9"}
+					]
+				},
+				"dmg12": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 8"}
+					]
+				},
+				"dmg13": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 7"}
+					]
+				},
+				"dmg14": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 6"}
+					]
+				},
+				"dmg15": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 5"}
+					]
+				},
+				"dmg16": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 4"}
+					]
+				},
+				"dmg17": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 3"}
+					]
+				},
+				"dmg18": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 2"}
+					]
+				},
+				"dmg19": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 1"}
+					]
+				}
+			}
+		}
+	}
+}
